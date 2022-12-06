@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100vw;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 26px;
+}
+
+button {
+    padding: 4px;
+}
+
+#solution_steps {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 170px);
+    justify-content: center;
+    gap: 20px 10px;
+}
+
+.solution_steps_table {
+    border-collapse: collapse;
+}
+
+.solution_steps_table td {
+    padding: 6px 8px;
+    border: 1px dashed gray;
+    text-align: center;
+}
+
+.vertical_align_center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.step_button {
+    padding: 4px;
+    color: white;
+    border-radius: 4px;
+    background-color: green;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 Puzzle With DFS</title>
+    <link rel="stylesheet" href="./lib/style.css">
+</head>
+
+<body>
+    <main class="container">
+        <h2>8 Puzzle with Depth First Search Algorithm</h2>
+        <div id="canvas_container"></div>
+        <div id="button_container">
+            <span class="button" id="start_button"></span>
+            <span class="button" id="pause_button"></span>
+            <span class="button" id="restart_button"></span>
+            <span class="button" id="new_button"></span>
+        </div>
+        <div>
+            Total Search = <span id="loop_count"></span>
+        </div>
+        <div id="solution_steps"></div>
+    </main>
+    <script src="./class/Cell.js"></script>
+    <script src="./class/Node.js"></script>
+    <script src="./lib/p5.min.js"></script>
+    <script src="./script/dfs.js"></script>
+</body>
+
+</html>
