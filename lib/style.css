@@ -6,11 +6,15 @@
 
 .container {
     width: 100vw;
-    padding: 20px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     row-gap: 26px;
+}
+
+.title{
+    font-family: serif;
 }
 
 button {
@@ -20,7 +24,7 @@ button {
 #solution_steps {
     width: 70%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 170px);
+    grid-template-columns: repeat(auto-fit, 180px);
     justify-content: center;
     gap: 20px 10px;
 }
@@ -44,7 +48,7 @@ button {
 }
 
 .step_button {
-    padding: 4px;
+    padding: 4px 6px;
     color: white;
     border-radius: 4px;
     background-color: green;

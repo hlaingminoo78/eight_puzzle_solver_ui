@@ -48,6 +48,12 @@ class Node {
     for (let i = 0; i < puzzle.length; i++) {
       if (puzzle[i] == 0) this.blankPosition = i;
     }
+
+    // -fromRoot save how step far from the root node (h-function)
+    this.fromRoot = 0;
+
+    // -toGoal save how step away to the goal node (g-function)
+    this.toGoal = 99999;
   }
 
   // -function to swap two values in the Array
@@ -90,6 +96,9 @@ class Node {
       // -set this node as the parent of the new child node
       child.parent = this;
 
+      // -child node is one step far from parent node, so add 1
+      child.fromRoot = this.fromRoot + 1;
+
       // -add new child to the children list of this node
       this.children.push(child);
     }
@@ -113,6 +122,9 @@ class Node {
       // -set this node as the parent of the new child node
       child.parent = this;
 
+      // -child node is one step far from parent node, so add 1
+      child.fromRoot = this.fromRoot + 1;
+
       // -add new child to the children list of this node
       this.children.push(child);
     }
@@ -135,6 +147,9 @@ class Node {
       // -set this node as the parent of the new child node
       child.parent = this;
 
+      // -child node is one step far from parent node, so add 1
+      child.fromRoot = this.fromRoot + 1;
+
       // -add new child to the children list of this node
       this.children.push(child);
     }
@@ -156,6 +171,9 @@ class Node {
 
       // -set this node as the parent of the new child node
       child.parent = this;
+
+      // -child node is one step far from parent node, so add 1
+      child.fromRoot = this.fromRoot + 1;
 
       // -add new child to the children list of this node
       this.children.push(child);
@@ -237,5 +255,37 @@ class Node {
     let paragraph = createDiv(xml);
     paragraph.parent("solution_steps");
     paragraph.addClass("vertical_align_center");
+  }
+
+  // -function to calculate how many step this node needs to go to reach goal
+  // -use manhattan distance
+  setStepToGoal(goal) {
+    let positionCurrent = [];
+    let positionGoal = [];
+    let step = 0;
+    let k = 0;
+    // -save x and y value to calculate manhattan distance later
+    for (let i = 0; i < this.columnCount; i++) {
+      for (let j = 0; j < this.columnCount; j++) {
+        positionCurrent.push({ x: j, y: i, value: this.puzzle[k].value });
+        positionGoal.push({ x: j, y: i, value: goal.puzzle[k].value });
+        k++;
+      }
+    } // -sort the two array with its value attributes
+    positionCurrent = positionCurrent.sort((a, b) => a.value - b.value);
+    positionGoal = positionGoal.sort((a, b) => a.value - b.value);
+
+    // -calculate distance
+    for (let i = 0; i < this.puzzle.length; i++) {
+      step +=
+        Math.abs(positionCurrent[i].x - positionGoal[i].x) +
+        Math.abs(positionCurrent[i].y - positionGoal[i].y);
+    }
+
+    this.toGoal = step;
+  }
+  // -get total cost (f=g+h)
+  get cost() {
+    return this.fromRoot + this.toGoal;
   }
 }

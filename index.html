@@ -7,8 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>8 Puzzle Solver</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         .container {
             width: 100vw;
+            padding: 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -18,16 +25,20 @@
         .buttons li {
             margin: 16px 0;
         }
+
+        .title {
+            font-family: serif;
+        }
     </style>
 </head>
 
 <body>
     <main class="container">
-        <h2>8 Puzzle Solver</h2>
+        <h2 class="title">8 Puzzle Solver</h2>
         <ul class="buttons">
             <li><a href="bfs.html">with Breadth First Search</a></li>
             <li><a href="dfs.html">with Depth First Search</a></li>
-            <li><a href="#">with A* Search</a></li>
+            <li><a href="astar.html">with A* Search</a></li>
         </ul>
     </main>
 </body>
